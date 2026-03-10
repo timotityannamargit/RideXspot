@@ -58,9 +58,9 @@ Route::get('/rolunk', function () {
     return view('pages.rolunk');
 })->name("rolunk");
 
-/*Route::get('/regisztracio', function () {
-    return view('pages.kapcsolat');
-})->name("regisztracio");*/
+Route::get('/autok', function(){
+    return view('pages.autok');
+})->name("autok");
 
 Route::post('/bejelentkezes', function (Request $request) {
     $users = [
