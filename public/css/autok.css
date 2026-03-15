@@ -1,15 +1,27 @@
-
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    height: 100%;
+}
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: #000;
-  color: #ddd;
-  line-height: 1.6;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+    font-family:
+        "Inter",
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial;
+    background: #000;
+    color: #ddd;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 .image-grid {
     display: grid;
@@ -24,113 +36,88 @@ body {
 }
 
 .container {
-  width: min(1200px, 92%);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 520px;
-  gap: 40px;
-  align-items: center;
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 40px;
 }
-
-.left { color: #e6e6e6; }
 
 .huge-title {
-  font-size: clamp(56px, 10vw, 120px);
-  font-weight: 900;
-  letter-spacing: 4px;
-  color: rgba(255,255,255,0.12);
-  margin-bottom: 395px;
-  line-height: 0.9;
-}
-.cars-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:30px;
-    padding:40px;
-}
-
-.car-card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
-
-.car-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.car-info{
-    padding:15px;
-}
-
-.car-info p{
-    display:flex;
-    justify-content:space-between;
-    border-bottom:1px solid #ddd;
-    padding:8px 0;
-}
-
-.car-btn{
-    width:100%;
-    padding:12px;
-    background:#0a1c3a;
-    color:white;
-    border:none;
-    cursor:pointer;
-    font-size:16px;
-}
-
-.car-btn:hover{
-    background:#132b5c;
+    font-size: clamp(56px, 10vw, 120px);
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.12);
+    line-height: 0.9;
+    text-align: center;
 }
 
 .content {
-  max-width: 560px;
+    max-width: 560px;
 }
 
 /*Mottó*/
 .lead {
-  color: #cfcfcf;
-  margin-bottom: 14px;
-  font-weight: 500;
+    color: #cfcfcf;
+    margin-bottom: 14px;
+    font-weight: 500;
 }
 
 .motto {
-  display: inline-block;
-  margin: 10px 0 18px;
-  color: #fff;
-  font-weight: 700;
+    display: inline-block;
+    margin: 10px 0 18px;
+    color: #fff;
+    font-weight: 700;
 }
 
-
 .right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .hero-car {
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.9));
-  transform: translateY(4px);
-  border-radius: 6px;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.9));
+    transform: translateY(4px);
+    border-radius: 6px;
 }
 
-@media (max-width:1000px){
-    .cars-grid{
-        grid-template-columns:repeat(2,1fr);
+@media (max-width: 1000px) {
+    .cars-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width:600px){
-    .cars-grid{
-        grid-template-columns:1fr;
+@media (max-width: 600px) {
+    .cars-grid {
+        grid-template-columns: 1fr;
     }
+}
+table {
+    width: 100%;
+}
+
+td {
+    padding: 15px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
 }

@@ -7,43 +7,66 @@
 @section('content')
     <main class="autok-section" role="main" aria-labelledby="autok-heading">
         <div class="container">
-            <aside class="left">
                 <h1 id="autok-heading" class="huge-title">AUTÓINK</h1>
             </aside>
-            <div class="cars-grid">
 
-                <div class="car-card">
-                    <img src="public/img/bmw4_cabrio.jpg" alt="Autó">
 
-                    <div class="car-info">
-                        <p><b>MODELL</b> Dodge Challenger</p>
-                        <p><b>MOTOR</b> 5.7 V8</p>
-                        <p><b>TELJESÍTMÉNY</b> 377 LE</p>
-                        <p><b>ÉVJÁRAT</b> 2018</p>
-                        <p><b>ÁR</b> 13.390.000 Ft</p>
-                    </div>
+             <table>
+<tr>
+<td>
+<div class="card">
+<img src="./img/audi_a4.jpg">
+<h3>Audi a4</h3>
+<p>Description</p>
+</div>
+</td>
 
-                    <button class="car-btn">Bővebben</button>
-                </div>
+<td>
+<div class="card">
+<img src="./img/audi_a5.jpg">
+<h3>Audi a5</h3>
+<p>Description</p>
+</div>
+</td>
 
-                <div class="car-card">
-                    <img src="/images/car2.jpg" alt="Autó">
+<td>
+<div class="card">
+<img src="./img/audi_a6.avif">
+<h3>Audi a6</h3>
+<p>Description</p>
+</div>
+</td>
 
-                    <div class="car-info">
-                        <p><b>MODELL</b> Dodge Challenger</p>
-                        <p><b>MOTOR</b> 6.4 V8</p>
-                        <p><b>TELJESÍTMÉNY</b> 486 LE</p>
-                        <p><b>ÉVJÁRAT</b> 2015</p>
-                        <p><b>ÁR</b> 14.500.000 Ft</p>
-                    </div>
+<td>
+<div class="card">
+<img src="./img/audi_a7.jpg">
+<h3>Audi a7</h3>
+<p>Description</p>
+</div>
+</td>
+</tr>
 
-                    <button class="car-btn">Bővebben</button>
-                </div>
+<tr>
+<td><div class="card"><img src="./img/audirs4.jpg"><h3>Audi rs4</h3></div></td>
+<td><div class="card"><img src="./img/audirs5.jpg"><h3>Audi rs5</h3></div></td>
+<td><div class="card"><img src="./img/audirs6.jpg"><h3>Audi rs5</h3></div></td>
+<td><div class="card"><img src="./img/audirs7.webp"><h3>Audi rs7</h3></div></td>
+</tr>
 
-            </div>
+<tr>
+<td><div class="card"><img src="./img/audi-q8-landing2-1-scaled.jpg"><h3>Audi q8</h3></div></td>
+<td><div class="card"><img src="./img/bmw_330e_hybrid.jpg"><h3>Bmw 330e</h3></div></td>
+<td><div class="card"><img src="./img/bmw_520_2022.jpg"><h3>Bmw 520d</h3></div></td>
+<td><div class="card"><img src="./img/bmw_xdrive_520d.jpg"><h3>Bmw xdrive 520d</h3></div></td>
+</tr>
 
-            <figure class="right" aria-hidden="true">
-            </figure>
-        </div>
+<tr>
+<td><div class="card"><img src="./img/bmw4_cabrio.jpg"><h3>Bmw 4 cabrio</h3></div></td>
+<td><div class="card"><img src="./img/BMW-Z4-2009-2017.jpg"><h3>Bmw Z4</h3></div></td>
+<td><div class="card"><img src="./img/image.webp"><h3>Bmw e46</h3></div></td>
+<td><div class="card"><img src="./img/06.jpg"><h3>Bmw e36</h3></div></td>
+</tr>
+
+</table>
     </main>
 @endsection
