@@ -10,17 +10,9 @@
         <div class="container">
             <aside class="left">
                 <h1 id="kapcsolat-heading" class="huge-title">KAPCSOLAT</h1>
+                <p>Keress minket bizalommal!</p>
 
-                <div class="content">
-                    <p>Ha bármi kérdése van, keressen minket bizalommal!</p>
-
-                    <span>📞 +36 30 123 4567</span><br>
-                    <span>⏰ H–P: 8:00 – 18:00</span>
-
-                    <p class="copyright">
-                        &copy; {{ date('Y') }} RideXspot. Minden jog fenntartva.
-                    </p>
-                </div>
+                
             </aside>
 
             <figure class="right" aria-hidden="true">

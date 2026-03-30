@@ -83,3 +83,6 @@ Route::post('/bejelentkezes', function (Request $request) {
         ->route('bejelentkezes')
         ->with('alert', "badpass");
 })->name("bejelentkezes.submit");
+
+
+Route::get('/cars/search', [CarController::class, 'search'])->name('cars.search');
