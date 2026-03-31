@@ -3,17 +3,15 @@
     <link rel="stylesheet" href="{{ asset('css/szolgaltatasok.css') }}">
 @endpush
 @section('content')
-
     <main class="main">
         <section class="hero">
             <div class="hero-inner wrap">
                 <div class="hero-text">
                     <h1>Ott kezdődik az autód szíve, ahol a mi munkánk indul.</h1>
                     <p class="lead">Ismerd meg szervizünk szolgáltatásait — megbízható, precíz és professzionális ellátás.
-                        </p>
+                    </p>
                 </div>
-                <div class="hero-visual" aria-hidden="true">
-                </div>
+
             </div>
         </section>
 
@@ -38,17 +36,17 @@
 
         <!-- Hibajelenségek (ikonos lista) -->
 
-        
+
         <section class="issues wrap">
             <h2 class="section-title">Gyakori hibajelenségek</h2>
             <div class="issues-grid">
                 @foreach ($issues as $issue)
                     <div class="issue">
-                    <svg class="issue-icon">
-                        <use href="{{ $issue->icon }}"></use>
-                    </svg>
-                    <p>{{ $issue->name }}</p>
-                </div>
+                        <svg class="issue-icon">
+                            <use href="{{ $issue->icon }}"></use>
+                        </svg>
+                        <p>{{ $issue->name }}</p>
+                    </div>
                 @endforeach
                 <div class="issue">
                     <svg class="issue-icon">
@@ -80,7 +78,9 @@
         <section class="contact wrap">
             <h2 class="section-title">Látogass el hozzánk</h2>
             <p class="muted">Cím: Budapest — időpont egyeztetés a honlapon keresztül.</p>
-            <a class="cta" href="#">Időpont foglalás</a>
+            <a class="cta" href="{{ route('booking') }}#foglalas">
+                Időpont foglalás
+            </a>
         </section>
     </main>
 @endsection

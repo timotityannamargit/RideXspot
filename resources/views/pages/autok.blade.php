@@ -9,12 +9,7 @@
         <div class="container">
             <h1 id="autok-heading" class="huge-title">AUTÓINK</h1>
 
-            <!-- Keresőmező -->
-            <form action="{{ route('cars.search') }}" method="GET" class="relative mb-8">
-                <input type="text" name="q" placeholder="Keresés (pl. Audi A5)...">
-
-
-            </form>
+           
 
             <!-- Kártyák Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -148,6 +143,42 @@
                     <h3>BMW E36</h3>
                     <p><strong>90–321 LE, 1.6–3.2L, benzin/dízel, 1990–2000</strong></p>
                 </div>
+                <!-- BMW M3 GTR -->
+                <div class="card">
+                    <img src="./img/bmw-m3-gtr-street-stage-teaser.avif" alt="BMW M3 GTR 2020–2024">
+                    <h3>BMW M3 GTR</h3>
+                    <p><strong>190–340 LE, 2.0L, benzin/dízel, ~2020–2024</strong></p>
+                </div>
+                <!-- Peugeot 508 -->
+
+                <div class="card">
+                    <img src="./img/peugeot_508.jpg" alt="Peugeot 508 2019–2024">
+                    <h3>Peugeot 508</h3>
+                    <p><strong>190–340 LE, 2.0L, benzin/dízel, ~2019–2024</strong></p>
+                </div>
+                <!-- Peugeot RCZ -->
+
+                <div class="card">
+                    <img src="./img/peugeot_rcz.jpg" alt="Peugeot RCZ 2010–2015">
+                    <h3>Peugeot RCZ</h3>
+                    <p><strong>190–340 LE, 2.0L, benzin/dízel, ~2010–2015</strong></p>
+                </div>
+                <!-- Peugeot 3008 -->
+
+                <div class="card">
+                    <img src="./img/peugeot-3008-restyle-2020.jpg" alt="Peugeot 3008 2020–2024">
+                    <h3>Peugeot 3008</h3>
+                    <p><strong>190–340 LE, 2.0L, benzin/dízel, ~2020–2024</strong></p>
+                </div>
+                <!-- Peugeot 2008 -->
+
+                <div class="card">
+                    <img src="./img/2008_peugeot.jpg" alt="Peugeot 2008 2020–2024">
+                    <h3>Peugeot 2008</h3>
+                    <p><strong>190–340 LE, 2.0L, benzin/dízel, ~2020–2024</strong></p>
+                </div>
+                
+
             </div>
     </main>
 @endsection

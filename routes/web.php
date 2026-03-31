@@ -84,5 +84,10 @@ Route::post('/bejelentkezes', function (Request $request) {
         ->with('alert', "badpass");
 })->name("bejelentkezes.submit");
 
+Route::get('/booking', function (){
+    return view('pages.booking');
+})->name("booking");
 
-Route::get('/cars/search', [CarController::class, 'search'])->name('cars.search');
+Route::post("/booking", function (){
+
+})->name("booking.store");
