@@ -10,20 +10,21 @@
 <section class="hero">
     <div class="hero-image"></div>
 
-        <div class="hero-content">
-            <h4>RideXspot ZRT.</h4>
-            <h1>IDŐPONT FOGLALÁS</h1>
-            <p>Foglalj időpontot gyorsan és egyszerűen online!</p>
-        </div>
+    <div class="hero-content">
+        <h4>RideXspot ZRT.</h4>
+        <h1>IDŐPONT FOGLALÁS</h1>
+        <p>Foglalj időpontot gyorsan és egyszerűen online!</p>
+    </div>
 </section>
 
 <!-- Booking Form -->
 <section id="foglalas" class="booking-section">
-    <div class="conteiner">
+    <div class="container">
         <h2>Időpont foglalás</h2>
 
-        <form action="{{ route("booking.store") }}" method="POST" class="booking-form">
+        <form action="{{ route('booking.store') }}" method="POST" class="booking-form">
             @csrf
+
             <div class="form-group">
                 <label>Név</label>
                 <input type="text" name="name" required>
@@ -60,4 +61,5 @@
         </form>
     </div>
 </section>
+
 @endsection

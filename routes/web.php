@@ -29,9 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('repairs', RepairController::class);
 });
 
-Route::get('/helloworld', function () {
-    return view('helloWorld');
-});
+
 
 Route::get('/bejelentkezes', function () {
     return view('pages.bejelentkezes');
@@ -84,10 +82,14 @@ Route::post('/bejelentkezes', function (Request $request) {
         ->with('alert', "badpass");
 })->name("bejelentkezes.submit");
 
-Route::get('/booking', function (){
+Route::get('/booking', function () {
     return view('pages.booking');
-})->name("booking");
+})->name('booking');
 
-Route::post("/booking", function (){
+Route::post('/booking', function (\Illuminate\Http\Request $request) {
+    // Itt elmentheted az adatokat az adatbázisba
+    // Például Booking::create($request->all());
 
-})->name("booking.store");
+    // Flash üzenet, amit a főoldalon mutatunk
+    return redirect()->route('home')->with('success', 'A foglalása sikeresen megtörtént!');
+})->name('booking.store');

@@ -9,7 +9,7 @@
         <div class="container">
             <h1 id="autok-heading" class="huge-title">AUTÓINK</h1>
 
-           
+
 
             <!-- Kártyák Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -96,88 +96,86 @@
 
 
 
-                <!-- BMW 330e -->
+                <!-- BMW 3 series (e34) -->
                 <div class="card">
-                    <img src="./img/bmw_330e_hybrid.jpg" alt="BMW 330e 2019–2024">
-                    <h3>BMW 330e</h3>
+                    <img src="./img/e34bmw.jpg" alt="BMW 330e 2019–2024">
+                    <h3>BMW 3 Series (E30)</h3>
                     <p><strong>252–292 LE, 2.0L + elektromos, plug-in hibrid, ~2019–2024</strong></p>
                 </div>
-
-                <!-- BMW 520d -->
-                <div class="card">
-                    <img src="./img/bmw_520_2022.jpg" alt="BMW 520d 2017–2024">
-                    <h3>BMW 520d</h3>
-                    <p><strong>190 LE, 2.0L, dízel, ~2017–2024</strong></p>
-                </div>
-
-                <!-- BMW 520d xDrive -->
-                <div class="card">
-                    <img src="./img/8bmw.jpg" alt="BMW 520d xDrive 2017–2024">
-                    <h3>BMW 8 series</h3>
-                </div>
-
-                <!-- BMW 4 Cabrio -->
-                <div class="card">
-                    <img src="./img/bmw4_cabrio.jpg" alt="BMW 4 Cabrio 2020–2024">
-                    <h3>BMW 4 Cabrio</h3>
-                    <p><strong>184–374 LE, 2.0–3.0L, benzin/dízel, ~2020–2024</strong></p>
-                </div>
-
-                <!-- BMW Z4 -->
-                <div class="card">
-                    <img src="./img/BMW-Z4-2009-2017.jpg" alt="BMW Z4 2019–2024">
-                    <h3>BMW Z4</h3>
-                    <p><strong>197–340 LE, 2.0–3.0L, benzin, ~2019–2024</strong></p>
-                </div>
-
-                <!-- BMW E46 -->
-                <div class="card">
-                    <img src="./img/e46_bmw_3.jpg" alt="BMW E46 1998–2006">
-                    <h3>BMW E46</h3>
-                    <p><strong>105–343 LE, 1.8–3.2L, benzin/dízel, 1998–2006</strong></p>
-                </div>
-
-                <!-- BMW E36 -->
+                <!-- BMW 3 Series (E36) -->
                 <div class="card">
                     <img src="./img/06.jpg" alt="BMW E36 1990–2000">
-                    <h3>BMW E36</h3>
+                    <h3>BMW 3 Series (E36)</h3>
                     <p><strong>90–321 LE, 1.6–3.2L, benzin/dízel, 1990–2000</strong></p>
                 </div>
-                <!-- BMW M3 GTR -->
+                <!-- BMW 3 Series (E46) -->
                 <div class="card">
-                    <img src="./img/bmw-m3-gtr-street-stage-teaser.avif" alt="BMW M3 GTR 2020–2024">
-                    <h3>BMW M3 GTR</h3>
-                    <p><strong>190–340 LE, 2.0L, benzin/dízel, ~2020–2024</strong></p>
+                    <img src="./img/e46_bmw_3.jpg" alt="BMW E46 1998–2006">
+                    <h3>BMW 3 Series (E46)</h3>
+                    <p><strong>105–343 LE, 1.8–3.2L, benzin/dízel, 1998–2006</strong></p>
                 </div>
-                <!-- Peugeot 508 -->
-
+                <!-- BMW 3 Series (E90) -->
                 <div class="card">
-                    <img src="./img/peugeot_508.jpg" alt="Peugeot 508 2019–2024">
-                    <h3>Peugeot 508</h3>
-                    <p><strong>190–340 LE, 2.0L, benzin/dízel, ~2019–2024</strong></p>
+                    <img src="./img/BMW-3-Series-E90-E92-1.webp" alt="BMW E90 2004–2013">
+                    <h3>BMW 3 Series (E90)</h3>
+                    <p><strong>105–343 LE, 1.8–3.2L, benzin/dízel, 2004–2013</strong></p>
                 </div>
-                <!-- Peugeot RCZ -->
-
+                <!-- BMW 3 Series (F30) -->
                 <div class="card">
-                    <img src="./img/peugeot_rcz.jpg" alt="Peugeot RCZ 2010–2015">
-                    <h3>Peugeot RCZ</h3>
-                    <p><strong>190–340 LE, 2.0L, benzin/dízel, ~2010–2015</strong></p>
+                    <img src="./img/3-Series-F30-5.jpg" alt="BMW F30 2012–2019">
+                    <h3>BMW 3 Series (F30)</h3>
+                    <p><strong>105–343 LE, 1.8–3.2L, benzin/dízel, 2012–2019</strong></p>
                 </div>
-                <!-- Peugeot 3008 -->
-
+                <!-- BMW 3 Series (E90) -->
                 <div class="card">
-                    <img src="./img/peugeot-3008-restyle-2020.jpg" alt="Peugeot 3008 2020–2024">
-                    <h3>Peugeot 3008</h3>
-                    <p><strong>190–340 LE, 2.0L, benzin/dízel, ~2020–2024</strong></p>
+                    <img src="./img/bmw_g203.webp" alt="BMW 3 Series (G20) 2019–2024">
+                    <h3>BMW 3 Series (G20)</h3>
+                    <p><strong>105–343 LE, 1.8–3.2L, benzin/dízel, 2019–2024</strong></p>
                 </div>
-                <!-- Peugeot 2008 -->
 
+                <!-- BMW 5 Series (E39) -->
                 <div class="card">
-                    <img src="./img/2008_peugeot.jpg" alt="Peugeot 2008 2020–2024">
-                    <h3>Peugeot 2008</h3>
-                    <p><strong>190–340 LE, 2.0L, benzin/dízel, ~2020–2024</strong></p>
+                    <img src="./img/BMW-5-Series-1996-1280-21.jpg" alt="BMW 5 Series (E39) 1995–2004">
+                    <h3>BMW 5 Series (E39)</h3>
+                    <p><strong>190 LE, 2.0L, dízel, ~1995–2004</strong></p>
+                </div>
+
+                <!-- BMW 5 Series (E60) -->
+                <div class="card">
+                    <img src="./img/BMW-E60-5-Series-images-02.jpg" alt="BMW E60 1987–1996">
+                    <h3>BMW 5 Series (E60)</h3>
+                    <p><strong>113–340 LE, 1.8–3.8L, benzin/dízel, ~1987–1996</strong></p>
+                </div>
+                <!-- BMW 5 Series (F10) -->
+                <div class="card">
+                    <img src="./img/BMW-F10-5-Series-images-19.jpg" alt="BMW 5 Series (F10) 2010–2017">
+                    <h3>BMW 5 Series (F10)</h3>
+                    <p><strong>113–340 LE, 1.8–3.8L, benzin/dízel, ~2010–2017</strong></p>
+                </div>
+                <!-- BMW 5 Series (G30) -->
+                <div class="card">
+                    <img src="./img/bmw_5_series_g30.jpg" alt="BMW 5 Series (G30) 2017–2023">
+                    <h3>BMW 5 Series (G30)</h3>
+                    <p><strong>113–340 LE, 1.8–3.8L, benzin/dízel, ~2017–2023</strong></p>
+                </div>
+                <!-- BMW 5 Series (G60) -->
+                <div class="card">
+                    <img src="./img/bmw_5_series_g60.webp" alt="BMW 5 Series (G60) 2023–">
+                    <h3>BMW 5 Series (G60)</h3>
+                    <p><strong>113–340 LE, 1.8–3.8L, benzin/dízel, ~2023–</strong></p>
                 </div>
                 
+
+               
+
+                <!-- BMW Z Series (Z4) -->
+                <div class="card">
+                    <img src="./img/BMW-Z4-2009-2017.jpg" alt="BMW Z Series (Z4) 2019–2024">
+                    <h3>BMW Z Series (Z4)</h3>
+                    <p><strong>197–340 LE, 2.0–3.0L, benzin, ~2019–2024</strong></p>
+                </div>
+                
+
 
             </div>
     </main>

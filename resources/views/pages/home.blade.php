@@ -4,6 +4,13 @@
 @endpush
 
 @section('content')
+
+@if (session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
+
 <section class="hero">
     <div class="hero-image"></div>
     <div class="hero-content">
@@ -11,7 +18,7 @@
       <h1>AUTÓBÉRLÉS - <br>BIZTOSÍTÁS, KÁRRENDEZÉS, ASSISTANCE</h1>
 
       <div class="buttons">
-        <a href="#" class="btn">Tekintse meg ajánlatainkat →</a>
+        <a href="{{ route('booking') }}#foglalas" class="btn">Időpont foglalás →</a>
         <a href="#" class="btn">Egyedi ajánlatkérés →</a>
       </div>
 
@@ -30,5 +37,5 @@
         </div>
       </div>
     </div>
-  </section>
+</section>
 @endsection
