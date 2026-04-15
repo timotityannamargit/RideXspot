@@ -23,25 +23,18 @@
     </thead>
     <tbody>
         <tr>
-            <td>🚴‍♂️ SpeedBike Szerviz</td>
-            <td>Kerékpár szerviz és karbantartás</td>
+            <td>DriveMaster Szerviz</td>
+            <td>Márkafüggetlen szerviz és karbantartás</td>
         </tr>
         <tr>
-            <td>🔧 ProRide Alkatrész Kft.</td>
+            <td>AutoTech Szerviz</td>
             <td>Alkatrész forgalmazás</td>
         </tr>
         <tr>
-            <td>🏍️ MotoX Hungary</td>
-            <td>Motorkerékpár kereskedelem</td>
+            <td>GearUp Auto</td>
+            <td>Szerszám kereskedelem</td>
         </tr>
-        <tr>
-            <td>🛞 UrbanWheel Shop</td>
-            <td>Kerekek és gumiabroncsok</td>
-        </tr>
-        <tr>
-            <td>⚡ E-Motion Elektromos Járművek</td>
-            <td>Elektromos jármű értékesítés</td>
-        </tr>
+       
     </tbody>
 </table>
 

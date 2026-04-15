@@ -96,6 +96,7 @@
 
 
 
+
                 <!-- BMW 3 series (e34) -->
                 <div class="card">
                     <img src="./img/e34bmw.jpg" alt="BMW 330e 2019–2024">
@@ -135,6 +136,7 @@
 
                 <!-- BMW 5 Series (E39) -->
                 <div class="card">
+                    
                     <img src="./img/BMW-5-Series-1996-1280-21.jpg" alt="BMW 5 Series (E39) 1995–2004">
                     <h3>BMW 5 Series (E39)</h3>
                     <p><strong>190 LE, 2.0L, dízel, ~1995–2004</strong></p>
