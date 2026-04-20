@@ -10,6 +10,7 @@
     <section class="hero">
         <div class="hero-inner wrap">
             <div class="hero-text">
+                
                 <h1>Ott kezdődik az autód szíve, ahol a mi munkánk indul.</h1>
                 <p class="lead">
                     Ismerd meg szervizünk szolgáltatásait — megbízható, precíz és professzionális ellátás.

@@ -16,13 +16,12 @@
 
 <body>
     @include('partials.menu')
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            if (window.lucide) {
-                lucide.createIcons();
-            }
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
         });
     </script>
     @yield('content')
