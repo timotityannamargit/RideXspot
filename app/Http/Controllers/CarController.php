@@ -4,19 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
+use Illuminate\Support\Facades\Auth; // <-- Ezt add hozzá!
 
 class CarController extends Controller
 {
-    public function search(Request $request)
+    public function index()
     {
-        $query = $request->input('q');
+        // Az Auth::check() biztosan működni fog és nem lesz piros
+        $cars = Auth::check() ? Car::all() : collect();
 
-        $cars = Car::query()
-            ->where('name', 'LIKE', "%{$query}%")
-            ->orWhere('engine', 'LIKE', "%{$query}%")
-            ->orWhere('fuel', 'LIKE', "%{$query}%")
-            ->get();
-
-        return view('autok', compact('cars', 'query'));
+        return view('pages.autok', compact('cars'));
     }
+    
+    // ... search metódus ...
 }
