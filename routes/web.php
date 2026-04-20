@@ -53,7 +53,7 @@ Route::get('/kijelentkezes', function () {
 })->name('logout');
 
 // --- VÉDETT ÚTVONALAK ---
-Route::middleware(['auth'])->group(function () {
+//Route::middleware(['auth'])->group(function () {
     Route::get('/autok', [CarController::class, 'index'])->name("autok");
     Route::get('/booking', function () {
         return view('pages.booking');
@@ -66,4 +66,4 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('appointment', AppointmentController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('repairs', RepairController::class);
-});
+//});

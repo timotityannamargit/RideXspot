@@ -2,21 +2,27 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
+/*
+ * @property int $id 
+ * @property string $img
+ * @property string $model
+ * @property int $motor_cc
+ * @property string $motor_type
+ * @property int $horsepower
+ * @property int $torque
+ * @property int $year
+ * @property string $link
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+*/
 
 class Car extends Model
 {
-    /** @use HasFactory<\Database\Factories\CarFactory> */
-    use HasFactory;
-    public function user(){
-    return $this->belongsTo(User::class);
-    }
-    protected $fillable = [
-    'name',
-    'engine',
-    'fuel',
-    'year'
-];
+  /**
+     * All fields inside the $guarded array are not mass-assignable
+     *
+     * @var array
+     */
+    protected $guarded = ['id'];
 }

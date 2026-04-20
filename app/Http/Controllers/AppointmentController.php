@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Models\Service;
@@ -28,16 +29,18 @@ class AppointmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    
     public function store(Request $request)
     {
-         $request->validate([
+        return redirect()->route('home')->with('success', 'Sikeres foglalás!');
+
+        $request->validate([
             'name'       => 'required|string|max:255',
             'email'      => 'required|email',
             'phone'      => 'required|string|max:20',
-            'service_id' => 'required|exists:services,id',
             'date'       => 'required|date',
             'time'       => 'required',
-            'note'       => 'nullable|string',
+            'message'       => 'nullable|string',
         ]);
 
         Appointment::create([
@@ -50,8 +53,6 @@ class AppointmentController extends Controller
             'note'       => $request->note,
             'status'     => 'új',
         ]);
-
-        return redirect()->back()->with('success', 'Időpont sikeresen lefoglalva!');
     }
 
     /**

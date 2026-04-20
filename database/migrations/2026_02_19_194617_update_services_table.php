@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('service_id');
             $table->string('content');
+            $table->string('sub_content')->nullable();
             $table->timestamps();
         });
     }
