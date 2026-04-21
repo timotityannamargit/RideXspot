@@ -78,9 +78,7 @@
             <h2 class="section-title">Látogass el hozzánk</h2>
             <p class="muted">Cím: Budapest — időpont egyeztetés a honlapon keresztül.</p>
 
-            <a class="cta" href="{{ route('booking') }}#foglalas">
-                Időpont foglalás
-            </a>
+            
         </section>
 
     </main>

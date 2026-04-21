@@ -19,17 +19,14 @@
 
       <div class="buttons">
         <a href="{{ route('booking') }}#foglalas" class="btn">Időpont foglalás →</a>
-        <a href="#" class="btn">Egyedi ajánlatkérés →</a>
       </div>
 
       <div class="stats">
         <div class="stat">
           <p>100%-ban magyar tulajdonú cég</p>
-          <p class="stat-number">0+ év</p>
         </div>
         <div class="stat">
           <p>Gépjármű-kereskedői és -flottakezelési tapasztalat</p>
-          <p class="stat-number">0+ év</p>
         </div>
         <div class="stat">
           <p>Lefedettség szerviz- és márkakereskedői fronton</p>

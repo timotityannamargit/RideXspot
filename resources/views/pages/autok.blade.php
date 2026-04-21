@@ -14,7 +14,6 @@
 
                 @foreach ($cars as $car)
                     <div class="card">
-                        {{-- Az 'alt' attribútum automatikusan generálódik a modell nevéből --}}
                         <img src="{{ asset($car->img) }}" alt="{{ Str::slug($car->model) }}">
 
                         <div class="card-body">
@@ -30,7 +29,6 @@
                                 </span>
                             </p>
 
-                            <p>
                                 <span>🏁 TELJESÍTMÉNY:</span>
                                 <span>
                                     {{ $car->horsepower }} LE
@@ -45,6 +43,9 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <div class="pagination-wrapper d-flex justify-content-center mt-5">
+                {{ $cars->links() }}
             </div>
         </div>
     </main>

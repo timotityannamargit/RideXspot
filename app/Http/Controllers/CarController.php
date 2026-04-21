@@ -11,7 +11,7 @@ class CarController extends Controller
     {
 
         return view('pages.autok') 
-            ->with('cars',  \App\Models\Car::all());
+            ->with('cars',  \App\Models\Car::paginate(12));
 
     }
     
