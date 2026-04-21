@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use App\Enums\AppointmentStatus;
 return new class extends Migration
 {
     /**
@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('car_id')->constrained()->onDelete('cascade');
-            $table->dateTime('appointment_date');
-            $table->string('status')->default('pending');
-            $table->text('note')->nullable();
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->date('date');
+            $table->string('time');
+            $table->text('message')->nullable();
+            $table->string('status')->default(AppointmentStatus::PENDING->value);
             $table->timestamps();
         });
     }

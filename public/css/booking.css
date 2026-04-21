@@ -44,3 +44,6 @@ input, textarea {
     border: none;
     cursor: pointer;
 }
+.is-invalid{
+    border-color: red;
+}

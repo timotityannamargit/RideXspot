@@ -2,8 +2,14 @@
 
 @push('pages')
     <link rel="stylesheet" href="{{ asset('css/szolgaltatasok.css') }}">
+    <script src="https://unpkg.com/lucide@latest"></script>
 @endpush
 
+@push('aftercontent')
+    <script>
+        lucide.createIcons();
+    </script>
+@endpush
 @section('content')
     <main class="main">
 
@@ -78,7 +84,7 @@
             <h2 class="section-title">Látogass el hozzánk</h2>
             <p class="muted">Cím: Budapest — időpont egyeztetés a honlapon keresztül.</p>
 
-            
+
         </section>
 
     </main>

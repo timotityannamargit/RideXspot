@@ -16,18 +16,10 @@
 
 <body>
     @include('partials.menu')
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-        });
-    </script>
     @yield('content')
 
     @include('partials.footer')
 
 </body>
-
+@stack("aftercontent")
 </html>

@@ -2,6 +2,7 @@
 
 @push('pages')
     <link rel="stylesheet" href="{{ asset('css/autok.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 @endpush
 
 @section('content')
@@ -28,7 +29,7 @@
                                     {{ $car->motor_type }}
                                 </span>
                             </p>
-
+                            <p>
                                 <span>🏁 TELJESÍTMÉNY:</span>
                                 <span>
                                     {{ $car->horsepower }} LE
@@ -39,7 +40,8 @@
                             </p>
 
                             <p><span>🕐 ÉVJÁRAT:</span> <span>{{ $car->year }}</span></p>
-                            <a href="{{ $car->link }}" class="btn" target="_blank">Bővebben</a>
+                            
+                            <a href="{{ $car->link }} " class="btn" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i>&nbsp;Bővebben</a>
                         </div>
                     </div>
                 @endforeach

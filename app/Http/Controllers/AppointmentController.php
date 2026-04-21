@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Models\Service;
+use App\Enums\AppointmentStatus;
+use Illuminate\Validation\Rule;
 
 class AppointmentController extends Controller
 {
@@ -29,30 +31,39 @@ class AppointmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    
+
     public function store(Request $request)
     {
-        return redirect()->route('home')->with('success', 'Sikeres foglalás!');
-
-        $request->validate([
-            'name'       => 'required|string|max:255',
+        
+        $validated = $request->validate([
+            'name'       => 'required|string|max:255|min:3',
             'email'      => 'required|email',
             'phone'      => 'required|string|max:20',
-            'date'       => 'required|date',
-            'time'       => 'required',
+            'date'       => [
+                'required',
+                'date_format:Y-m-d',
+                'after_or_equal:today',
+                Rule::unique('appointments', 'date')
+                    ->where(function ($query) use ($request) {
+                        return $query->where('time', $request->time);
+                    }),
+            ],
+            'time'       => [
+                'required',
+                'date_format:H:i',
+                Rule::unique('appointments', 'time')
+                    ->where(function ($query) use ($request) {
+                        return $query->where('date', $request->date);
+                    }),
+            ],
             'message'       => 'nullable|string',
         ]);
-
+        
         Appointment::create([
-            'name'       => $request->name,
-            'email'      => $request->email,
-            'phone'      => $request->phone,
-            'service_id' => $request->service_id,
-            'date'       => $request->date,
-            'time'       => $request->time,
-            'note'       => $request->note,
-            'status'     => 'új',
+            'status'     => AppointmentStatus::PENDING,
+            ...$validated
         ]);
+        return redirect()->route('home')->with('success', 'Sikeres foglalás!');
     }
 
     /**

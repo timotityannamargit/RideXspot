@@ -4,6 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Enums\AppointmentStatus;
+
+
+/*
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $phone
+ * @property string $date
+ * @property string $time
+ * @property string|null $message
+ * @property AppointmentStatus $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+*/
 
 class Appointment extends Model
 {
@@ -15,5 +30,12 @@ class Appointment extends Model
      * @var array
      */
     protected $guarded = ['id'];
-    protected $table = 'appointments';
+     /**
+     * Cast attributes
+     *
+     * @var array
+     */
+    protected $casts = [
+        'status' => AppointmentStatus::class,
+    ];
 }
