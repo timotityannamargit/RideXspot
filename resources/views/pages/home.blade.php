@@ -15,10 +15,10 @@
     <div class="hero-image"></div>
     <div class="hero-content">
       <h4>RideXspot ZRT.</h4>
-      <h1>AUTÓBÉRLÉS - <br>BIZTOSÍTÁS, KÁRRENDEZÉS, ASSISTANCE</h1>
+      <h1>AUTÓBÉRLÉS - VÁSÁRLÁS<br>SZERVÍZ SZOLGÁLTATÁSOK</h1>
 
       <div class="buttons">
-        <a href="{{ route('booking') }}#foglalas" class="btn">Időpont foglalás →</a>
+        <a href="{{ route('booking') }}#foglalas" class="btn">Időpont foglalás/szervízre →</a>
       </div>
 
       <div class="stats">

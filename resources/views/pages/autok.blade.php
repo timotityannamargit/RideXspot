@@ -46,7 +46,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="pagination-wrapper d-flex justify-content-center mt-5">
+            <div class="pagination-wrapper flex justify-center mt-5">
                 {{ $cars->links() }}
             </div>
         </div>

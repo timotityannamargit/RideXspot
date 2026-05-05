@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Models\Service;
@@ -15,9 +15,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
-
-        return view('appointment.create', compact('services'));
+        $appointments = Auth::user()->appointments()->orderBy('date', 'asc')->get();
+        return view('dashboard.appointments', compact('appointments'));
     }
 
     /**
@@ -25,7 +24,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        //
+        $services = Service::all();
+        return view('appointment.create', compact('services'));
     }
 
     /**

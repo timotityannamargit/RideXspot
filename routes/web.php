@@ -8,6 +8,8 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\RepairController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 
 // --- PUBLIKUS ÚTVONALAK ---
@@ -29,41 +31,43 @@ Route::get('/bejelentkezes', function () {
     return view('pages.bejelentkezes');
 })->name("bejelentkezes");
 
-Route::post('/bejelentkezes', function (Request $request) {
-    $users = [
-        "tesztelek@gmail.com" => '$2y$12$uT1uJJJ5BtT2ewleShU9D.LJWzzT.b2O5QxsxkKFu5ecnDUhjy2nK',
-        "halo@gmail.com" => '$2y$12$.IARkVVfkYqGfFW4WpV8buQAHVvFDlCE8ZAF7ejoeKFmupe0Sombe',
-        "timotityanna2006@gmail.com" => '$2y$12$gZuUxV0GkcN0TRbqFOLzN.qdcoAffQc82TRujeNEyhuzCX0QOgthe',
-        "csa@gmail.com" => '$2y$12$h6AdRY.jr8TuoUSrvx1PMekLq9rUoXfyyvovndKhpxLl05sjg5.gW'
-    ];
 
-    if (isset($users[$request->email]) && Hash::check($request->password, $users[$request->email])) {
-        $dbUser = User::where('email', $request->email)->first();
-        if ($dbUser) {
-            Auth::login($dbUser); // Ez a sor engedélyezi a hozzáférést
-            return redirect()->route('autok');
-        }
-    }
-    return redirect()->route('bejelentkezes')->with('alert', "badpass");
-})->name("bejelentkezes.submit");
 
 Route::get('/kijelentkezes', function () {
     Auth::logout();
     return redirect()->route('home');
-})->name('logout');
+});
 
 // --- VÉDETT ÚTVONALAK ---
 //Route::middleware(['auth'])->group(function () {
-    Route::get('/autok', [CarController::class, 'index'])->name("autok");
-    Route::get('/booking', function () {
-        return view('pages.booking');
-    })->name('booking');
-    Route::post('/booking', function (Request $request) {
-        return redirect()->route('home')->with('success', 'Sikeres foglalás!');
-    })->name('booking.store');
+Route::get('/autok', [CarController::class, 'index'])->name("autok");
+Route::get('/booking', function () {
+    return view('pages.booking');
+})->name('booking');
+Route::post('/booking', function (Request $request) {
+    return redirect()->route('home')->with('success', 'Sikeres foglalás!');
+})->name('booking.store');
 
-    Route::resource('cars', CarController::class);
-    Route::resource('appointment', AppointmentController::class);
-    Route::resource('services', ServiceController::class);
-    Route::resource('repairs', RepairController::class);
+Route::resource('cars', CarController::class);
+Route::resource('appointment', AppointmentController::class);
+Route::resource('services', ServiceController::class);
+Route::resource('repairs', RepairController::class);
 //});
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', function () {
+        return view('pages.admin.login');
+    })->name('admin.login');
+    Route::post('/register', [UserController::class, 'store'])->name('register.submit');
+    Route::get('/health', function () {
+        return response()->json(['status' => 'ok']);
+    })->name('health');
+    Route::post('/login', [LoginController::class, 'login'])->name("login.submit");
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+        Route::group(['prefix' => 'cars'], function () {
+            Route::get('/', [CarController::class, 'index'])->name('admin.cars');
+            Route::get('/list', [CarController::class, 'list'])->name('admin.cars.list');
+        });
+    });
+});
