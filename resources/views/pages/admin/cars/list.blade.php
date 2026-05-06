@@ -25,7 +25,7 @@
                         <tr>
                             <td>#{{ $car->id }}</td>
                             <td>
-                                <img src="{{ $car->img }}" alt="car" class="admin-thumbnail">
+                                <img src="{{ asset($car->img) }}" alt="car" class="admin-thumbnail">
                             </td>
                             <td><strong>{{ $car->model }}</strong></td>
                             <td>{{ $car->year }}</td>
@@ -33,8 +33,8 @@
                             <td>{{ $car->horsepower }} / {{ $car->torque }}</td>
                             <td class="text-right">
                                 <div class="action-buttons">
-                                    <a href="{{ route('cars.edit', $car->id) }}" class="btn-edit">Szerkesztés</a>
-                                    <form action="{{ route('cars.destroy', $car->id) }}" method="POST"
+                                    <a href="{{ route('admin.cars.edit', $car->id) }}" class="btn-edit">Szerkesztés</a>
+                                    <form action="{{ route('admin.cars.destroy', $car->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf
                                         @method('DELETE')

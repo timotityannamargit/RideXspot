@@ -68,15 +68,13 @@ Route::group(['prefix' => 'admin'], function () {
         Route::group(['prefix' => 'cars'], function () {
             Route::get('/', [CarController::class, 'index'])->name('admin.cars');
             Route::get('/list', [CarController::class, 'list'])->name('admin.cars.list');
+            Route::get('/create', [CarController::class, 'create'])->name('admin.cars.create');
+            Route::post('/', [CarController::class, 'store'])->name('admin.cars.store');
+            Route::get('/edit/{id}', [CarController::class, 'edit'])->name('admin.cars.edit');
+            Route::put('/{id}', [CarController::class, 'update'])->name('admin.cars.update');
+            Route::delete('/{id}', [CarController::class, 'destroy'])->name('admin.cars.destroy');
         });
     });
 });
 
-Route::prefix('admin/auth/cars')->name('admin.cars.')->group(function () {
-    Route::get('/', [CarController::class, 'index'])->name('index');
-    Route::get('/create', [CarController::class, 'create'])->name('create');
-    Route::post('/', [CarController::class, 'store'])->name('store');
-    Route::get('/edit/{id}', [CarController::class, 'edit'])->name('edit');
-    Route::put('/{id}', [CarController::class, 'update'])->name('update');
-    Route::delete('/{id}', [CarController::class, 'destroy'])->name('destroy');
-});
+
