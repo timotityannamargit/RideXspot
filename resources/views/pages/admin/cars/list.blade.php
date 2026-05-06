@@ -1,5 +1,5 @@
 @extends('pages.admin.layout')
-
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 @section('content')
     <div class="admin-container">
         <div class="admin-header">
