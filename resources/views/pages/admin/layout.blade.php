@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    @if(!Route::is('admin.login'))
+    @if(!Route::is('admin.login') && !Route::is('admin.register')) 
         @include('pages.admin.partials.menu')
     @endif
     @yield('content')

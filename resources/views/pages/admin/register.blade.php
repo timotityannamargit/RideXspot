@@ -1,29 +1,25 @@
-@extends('pages.admin.layout') {{-- Assumes your layout file is named layouts/app.blade.php --}}
+@extends('pages.admin.layout')
 
 @section('content')
     <div class="login-container">
-        <h2>Bejelentkezés</h2>
+        <h2>Regisztráció</h2>
 
-        {{-- Display General Alert Messages --}}
-        @if (session('alert') == 'badpass')
-            <div style="color: red;">Hibás email cím vagy jelszó!</div>
-        @endif
-        @if (session('alert') == 'unverified')
-            <div style="color: red;">Regisztráció nincs jóváhagyva!</div>
-        @endif
-        @if (session('alert') == 'registered')
-            <div style="color: rgb(102, 167, 76);">Sikeres regisztráció! Várjon Adminisztrátori jóváhagyásra!</div>
-        @endif
+        <form action="{{ route('admin.register.submit') }}" method="POST">
+            @csrf
 
-
-        <form action="{{ route('login.submit') }}" method="POST">
-            @csrf {{-- This prevents the 419 Page Expired error --}}
+            <div class="form-group">
+                <label for="name">Teljes név:</label>
+                <input type="text" name="name" id="name" value="{{ old('name') }}" required autofocus>
+                @error('name')
+                    <span style="color: red; font-size: 0.8em;">{{ $message }}</span>
+                @enderror
+            </div>
 
             <div class="form-group">
                 <label for="email">Email cím:</label>
                 <input type="email" name="email" id="email" value="{{ old('email') }}" required>
                 @error('email')
-                    <span style="color: red;">{{ $message }}</span>
+                    <span style="color: red; font-size: 0.8em;">{{ $message }}</span>
                 @enderror
             </div>
 
@@ -31,18 +27,25 @@
                 <label for="password">Jelszó:</label>
                 <input type="password" name="password" id="password" required>
                 @error('password')
-                    <span style="color: red;">{{ $message }}</span>
+                    <span style="color: red; font-size: 0.8em;">{{ $message }}</span>
                 @enderror
             </div>
 
-            <button type="submit">Belépés</button>
+            <div class="form-group">
+                <label for="password_confirmation">Jelszó megerősítése:</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" required>
+            </div>
+
+            <button type="submit">Regisztráció</button>
         </form>
+
         <div style="margin-top: 15px; text-align: center;">
-            <a href="{{ route('admin.register') }}">Regisztráció</a>
+            <a href="{{ route('admin.login') }}">Vissza</a>
         </div>
     </div>
 
     <style>
+        /* Reusing your existing styles for consistency */
         .login-container {
             max-width: 400px;
             margin: 50px auto;
@@ -69,11 +72,16 @@
         button {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #28a745;
+            /* Green for registration */
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
         }
     </style>
 @endsection

@@ -42,7 +42,7 @@
         <div class="container">
             <h2>Időpont foglalás</h2>
 
-            <form action="{{ route('appointment.store') }}" method="POST" class="booking-form">
+            <form action="{{ route('appointment.booking') }}" method="POST" class="booking-form">
                 @csrf
 
                 <div class="form-group">

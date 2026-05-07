@@ -4,7 +4,7 @@
     <div class="admin-container">
         <div class="admin-header">
             <h1>Gépjárművek kezelése</h1>
-            <a href="{{ route('cars.create') }}" class="btn-add">+ Új autó</a>
+            <a href="{{ route('admin.cars.create') }}" class="btn-add">+ Új autó</a>
         </div>
 
         <div class="table-responsive">
@@ -29,7 +29,6 @@
                     </td>
                     <td>
                         <div style="font-weight: 600; color: #fff;">{{ $car->model }}</div>
-                        <div style="font-size: 12px; color: var(--text-muted);">Porsche Excellence</div>
                     </td>
                     <td>{{ $car->year }}</td>
                     <td>

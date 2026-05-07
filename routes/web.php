@@ -27,43 +27,28 @@ Route::get('/rolunk', function () {
     return view('pages.rolunk');
 })->name("rolunk");
 
-Route::get('/bejelentkezes', function () {
-    return view('pages.bejelentkezes');
-})->name("bejelentkezes");
-
-
-
-Route::get('/kijelentkezes', function () {
-    Auth::logout();
-    return redirect()->route('home');
-});
-
-// --- VÉDETT ÚTVONALAK ---
-//Route::middleware(['auth'])->group(function () {
 Route::get('/autok', [CarController::class, 'index'])->name("autok");
 Route::get('/booking', function () {
     return view('pages.booking');
 })->name('booking');
-Route::post('/booking', function (Request $request) {
-    return redirect()->route('home')->with('success', 'Sikeres foglalás!');
-})->name('booking.store');
 
-Route::resource('cars', CarController::class);
-Route::resource('appointment', AppointmentController::class);
-Route::resource('services', ServiceController::class);
-Route::resource('repairs', RepairController::class);
-//});
+Route::post('/booking', [AppointmentController::class, 'booking'])->name('appointment.booking');
 
+
+// --- Admin útvonalak ---
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function () {
         return view('pages.admin.login');
     })->name('admin.login');
-    Route::post('/register', [UserController::class, 'store'])->name('register.submit');
+Route::get('/register', function () {
+        return view('pages.admin.register');
+    })->name('admin.register');
+    Route::post('/register', [LoginController::class, 'register'])->name('admin.register.submit');
     Route::get('/health', function () {
         return response()->json(['status' => 'ok']);
     })->name('health');
     Route::post('/login', [LoginController::class, 'login'])->name("login.submit");
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
         Route::group(['prefix' => 'cars'], function () {
             Route::get('/', [CarController::class, 'index'])->name('admin.cars');
@@ -74,7 +59,19 @@ Route::group(['prefix' => 'admin'], function () {
             Route::put('/{id}', [CarController::class, 'update'])->name('admin.cars.update');
             Route::delete('/{id}', [CarController::class, 'destroy'])->name('admin.cars.destroy');
         });
+        Route::group(['prefix' => 'appointments'], function () {
+            Route::get('/', [AppointmentController::class, 'index'])->name('admin.appointments');
+            Route::get('/list', [AppointmentController::class, 'list'])->name('admin.appointments.list');
+            Route::get('/create', [AppointmentController::class, 'create'])->name('admin.appointments.create');
+            Route::post('/', [AppointmentController::class, 'store'])->name('admin.appointments.store');
+            Route::get('/edit/{id}', [AppointmentController::class, 'edit'])->name('admin.appointments.edit');
+            Route::put('/{id}', [AppointmentController::class, 'update'])->name('admin.appointments.update');
+            Route::delete('/{id}', [AppointmentController::class, 'destroy'])->name('admin.appointments.destroy');
+        });
     });
+    Route::get('/unverified', function () {
+        return redirect()->route('admin.login')->with('alert', 'unverified');
+    })->name('verification.notice');
 });
 
 

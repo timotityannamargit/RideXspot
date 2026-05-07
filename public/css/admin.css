@@ -126,3 +126,45 @@ body {
 }
 
 .btn-delete:hover { color: #ff6b6b; text-decoration: underline; }
+
+
+.pagination {
+    display: flex;
+    gap: 5px;
+    border: none;
+}
+
+.pagination .page-item .page-link {
+    background-color: #1a1a1a; 
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 8px !important; 
+    padding: 10px 16px;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #252525;
+    border-color: #00b3b3;
+    color: #00b3b3;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #00b3b3 !important;
+    border-color: #00b3b3 !important;
+    color: #000 !important; 
+    font-weight: bold;
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: #111;
+    color: #555;
+    border-color: #222;
+}
+
+.pagination-wrapper small, 
+.pagination-wrapper .text-muted {
+    color: #888 !important;
+    font-size: 0.9rem;
+}

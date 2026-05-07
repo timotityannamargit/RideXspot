@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
@@ -10,31 +11,8 @@ use Illuminate\Validation\Rule;
 
 class AppointmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function booking(Request $request)
     {
-        $appointments = Auth::user()->appointments()->orderBy('date', 'asc')->get();
-        return view('dashboard.appointments', compact('appointments'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        $services = Service::all();
-        return view('appointment.create', compact('services'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-
-    public function store(Request $request)
-    {
-        
         $validated = $request->validate([
             'name'       => 'required|string|max:255|min:3',
             'email'      => 'required|email',
@@ -58,7 +36,7 @@ class AppointmentController extends Controller
             ],
             'message'       => 'nullable|string',
         ]);
-        
+
         Appointment::create([
             'status'     => AppointmentStatus::PENDING,
             ...$validated
@@ -66,20 +44,70 @@ class AppointmentController extends Controller
         return redirect()->route('home')->with('success', 'Sikeres foglalás!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+
+    public function list()
     {
-        //
+        $appointments = Appointment::orderBy('date', 'asc')->orderBy('time', 'asc')->paginate(12);
+        return view('pages.admin.appointments.list')->with('appointments', $appointments);
     }
+
+
+
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('pages.admin.appointments.create')->with('statuses', AppointmentStatus::cases());
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name'       => 'required|string|max:255|min:3',
+            'email'      => 'required|email',
+            'phone'      => 'required|string|max:20',
+            'date'       => [
+                'required',
+                'date_format:Y-m-d',
+                'after_or_equal:today',
+                Rule::unique('appointments', 'date')
+                    ->where(function ($query) use ($request) {
+                        return $query->where('time', $request->time);
+                    }),
+            ],
+            'time'       => [
+                'required',
+                'date_format:H:i',
+                Rule::unique('appointments', 'time')
+                    ->where(function ($query) use ($request) {
+                        return $query->where('date', $request->date);
+                    }),
+            ],
+            'message'       => 'nullable|string',
+            'status'        => ['required', Rule::in(array_map(fn($status) => $status->value, AppointmentStatus::cases()))],
+        ]);
+
+        Appointment::create($validated);
+        return redirect()->route('admin.appointments.list')->with('success', 'Foglalás sikeresen létrehozva!');
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(int $id)
     {
-        //
+        $appointment = Appointment::findOrFail($id);
+        return view('pages.admin.appointments.edit')
+            ->with('appointment', $appointment)
+            ->with('statuses', AppointmentStatus::cases());
     }
 
     /**
@@ -87,14 +115,43 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $appointment = Appointment::findOrFail($id);
+
+        $validated = $request->validate([
+            'name'       => 'required|string|max:255|min:3',
+            'email'      => 'required|email',
+            'phone'      => 'required|string|max:20',
+            'date'       => [
+                'required',
+                'date_format:Y-m-d',
+                'after_or_equal:today',
+                Rule::unique('appointments', 'date')
+                    ->where(function ($query) use ($request, $appointment)  {
+                        return $query->where('time', $request->time)->where('id', '<>', $appointment->id);
+                    }),
+            ],
+            'time'       => [
+                'required',
+                'date_format:H:i',
+                Rule::unique('appointments', 'time')
+                    ->where(function ($query) use ($request, $appointment) {
+                        return $query->where('date', $request->date)->where('id', '<>', $appointment->id);
+                    }),
+            ],
+            'message'       => 'nullable|string',
+            'status'        => ['required', Rule::in(array_map(fn($status) => $status->value, AppointmentStatus::cases()))],
+        ]);
+        $appointment->update($validated);
+        return redirect()->route('admin.appointments.list')->with('success', 'Foglalás sikeresen frissítve!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
-        //
+        $appointment = Appointment::findOrFail($id);
+        $appointment->delete();
+        return redirect()->route('admin.appointments.list')->with('success', 'Foglalás sikeresen törölve!');    
     }
 }
